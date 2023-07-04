@@ -1,0 +1,27 @@
+// module/_accordion.scss
+
+@use "../global/" as g;
+
+.accordion {
+  border: 1px solid g.$COLOR_GRAY95;
+
+  > * {
+    // padding: 12px;
+  }
+
+  &_toggle {
+    border-bottom: 1px solid g.$COLOR_GRAY95;
+  }
+
+  &_contain {
+    // height: 0;
+    overflow: hidden;
+    transition: .5s all;
+  }
+
+  .close & {
+    &_contain {
+    height: 0;
+  }
+  }
+}

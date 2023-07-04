@@ -1,0 +1,16 @@
+// project/_contents.scss
+
+@use "../global/" as g;
+
+.swiper-container {
+  z-index: index(g.$z, content_layer1);
+  height: 800px;
+
+  .fig {
+    display: block;
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 800px;
+  }
+}

@@ -1,0 +1,38 @@
+// project/_contents.scss
+
+@use "../global/" as g;
+
+.spy {
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+  height: 180px;
+  padding: 40px;
+
+  &_obj {
+    position: fixed;
+    right: 40px;
+    bottom: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    height: 100px;
+    color: g.$COLOR_WHITE;
+    text-decoration: none;
+    background-color: g.$COLOR_BLACK;
+    transition: transform .25s ease-out;
+    transform: translate( 0, 0);
+    z-index: index(g.$z, content_layer2);
+
+    &.spy_hide {
+      transform: translate( 200px, 0);
+    }
+
+    &.store {
+      position: relative;
+      right: auto;
+      bottom: auto;
+    }
+  }
+}

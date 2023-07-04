@@ -1,0 +1,138 @@
+@charset 'utf-8';
+
+@use "../global/" as g;
+
+.menu-trigger {
+  display: none;
+  position: absolute;
+  top: 50%;
+  right: 12px;
+  transform: translateY(-50%);
+  z-index: index(g.$z, menu-toggle);
+
+  > * {
+    display: inline-flex;
+    transition: all .4s;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+
+    span {
+      display: inline-block;
+      transition: all .4s;
+      box-sizing: border-box;
+      position: absolute;
+      left: 6px;
+      width: 20px;
+      height: 2px;
+      border-radius: 1px;
+      background-color: g.$COLOR_GRAY25;
+      vertical-align: bottom;
+
+      &:nth-of-type(1) {
+        top: 8px;
+      }
+      &:nth-of-type(2) {
+        top: 50%;
+        transform: translateY(-50%);
+      }
+      &:nth-of-type(3) {
+        bottom: 8px;
+      }
+
+      .min & {
+        background-color: #0E3B5E;
+      }
+
+      .open .min & {
+        background-color: g.$COLOR_BLACK;
+      }
+    }
+  }
+
+  i {
+    @include g.fz(24);
+    color: g.$COLOR_GRAY50;
+    transition: .25s ease-out;
+  }
+
+  &.active{
+    > * {
+      span {
+        &:nth-of-type(1) {
+          transform: translateY(8px) rotate(-45deg);
+        }
+        &:nth-of-type(2) {
+          left: 50%;
+          opacity: 0;
+          animation: active-menu-bar02 .8s forwards;
+        }
+        &:nth-of-type(3) {
+          transform: translateY(-6px) rotate(45deg);
+        }
+      }
+    }
+  }
+
+  &.active--back {
+    > * {
+      b {
+        &.name--menu {
+          opacity: 0;
+        }
+        &.name--close {
+          opacity: 0;
+        }
+        &.name--back {
+          opacity: 1;
+        }
+      }
+      span {
+        width: 14px;
+
+        &:nth-of-type(1) {
+          -webkit-transform: translateX(6px) translateY(9px) rotate(-45deg);
+          transform: translateX(6px) translateY(9px) rotate(-45deg);
+        }
+        &:nth-of-type(2) {
+          left: 50%;
+          opacity: 0;
+          -webkit-animation: active-menu-bar02 .8s forwards;
+          animation: active-menu-bar02 .8s forwards;
+        }
+        &:nth-of-type(3) {
+          -webkit-transform: translateY(-6px) translateX(6px) rotate(45deg);
+          transform: translateY(-6px) translateX(6px) rotate(45deg);
+        }
+      }
+    }
+  }
+
+  &:hover {
+    i {
+      opacity: .5;
+    }
+  }
+
+  @include g.media(md) {
+    display: block;
+  }
+}
+
+/*click後のスタイル*/
+
+@-webkit-keyframes active-menu-bar02 {
+  100% {
+    height: 0;
+  }
+}
+
+
+@keyframes active-menu-bar02 {
+  100% {
+    height: 0;
+  }
+}

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <%
+    var path = './';
+    var title = '';
+
+    localmeta = {
+      rel_path: path,
+      ttl: title,
+      page_name: 'home',
+      page_sub: ''
+    };
+  %>
+
+  <%- include('./common/_head', {meta: localmeta}); %>
+  <body>
+    <%- include('./common/_header', {meta: localmeta}); %>
+
+    <!-- スライダー -->
+    <div class="swiper-container">
+      <!-- Additional required wrapper -->
+      <div class="swiper-wrapper">
+        <!-- Slides -->
+        <div class="swiper-slide"><span class="fig" style="background-image: url(https://picsum.photos/1900/800/?random);"></span></div>
+        <div class="swiper-slide"><span class="fig" style="background-image: url(https://picsum.photos/1900/840/?random);"></span></div>
+        <div class="swiper-slide"><span class="fig" style="background-image: url(https://picsum.photos/1900/900/?random);"></span></div>
+      </div>
+      <!-- If we need pagination -->
+      <div class="swiper-pagination"></div>
+
+      <!-- If we need navigation buttons -->
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+    </div>
+
+    <!-- ページ内リンク -->
+    <a href="#test">リンク</a>
+
+    <!-- モーダル -->
+    <a data-modal="demo" class="js-modal-open">modal</a>
+
+    <!-- アコーディオン -->
+    <div class="js-accordion accordion opened">
+      <div class="accordion_toggle">アコーディオンスイッチ</div>
+      <div class="accordion_contain">テストテストテスト</div>
+    </div>
+
+    <!-- レイアウト集 -->
+
+    <div class="object fadein"><span>OBJECT</span></div>
+
+    <div class="wrapper wrapper_left fadein">
+      <div class="object"><span>OBJECT</span></div>
+    </div>
+
+    <div class="wrapper wrapper_center fadein">
+      <div class="object"><span>OBJECT</span></div>
+    </div>
+
+    <div class="wrapper wrapper_right fadein">
+      <div class="object"><span>OBJECT</span></div>
+    </div>
+
+    <div class="wrapper wrapper_half fadein_order">
+      <div class="object"><span>OBJECT</span></div>
+      <div class="object"><span>OBJECT</span></div>
+    </div>
+
+    <div class="wrapper wrapper_list fadein_order" id="test">
+      <div class="object"><span>OBJECT</span></div>
+      <div class="object"><span>OBJECT</span></div>
+      <div class="object"><span>OBJECT</span></div>
+      <div class="object"><span>OBJECT</span></div>
+    </div>
+
+    <div class="wrapper wrapper_fix_flex fadein_order">
+      <div class="object"><span>OBJECT</span></div>
+      <div class="object"><span>OBJECT</span></div>
+      <div class="object"><span>OBJECT</span></div>
+    </div>
+
+    <div class="spy">
+      <a href="#" class="spy_obj js-spy_obj">spy</a>
+    </div>
+    <%- include('./common/_footer', {meta: localmeta}); %>
+
+    <!-- ModalWrap -->
+    <div class="modal-wrap">
+      <div class="modal">
+        <span class="modal-btn js-modal-close"><i class="fas fa-times"></i></span>
+        <div class="modal-container"></div>
+      </div>
+    </div>
+    <!-- /ModalWrap -->
+
+    <div class="hide">
+
+      <div class="demo">
+        <div class="inner">
+          <p>TEST</p>
+          <a class="js-modal-close">CLOSE</a>
+        </div>
+      </div>
+
+    </div>
+
+  </body>
+
+</html>

@@ -1,0 +1,26 @@
+// global/_mediaquery.scss
+
+@use "./variable" as var;
+
+@mixin media($mediaSize) {
+  @if $mediaSize == pc {
+    // PC用 min
+    @media screen and (max-width: var.$BREAK_POINT_PC) {
+      @content;
+    }
+  } @else if $mediaSize == md {
+    // Tablet用
+    @media screen and (max-width: var.$BREAK_POINT_TABLET) {
+      @content;
+    }
+  } @else if $mediaSize == sm {
+    // SP用
+    @media screen and (max-width: var.$BREAK_POINT_SP) {
+      @content;
+    }
+  } @else if $mediaSize == landscape {
+    @media only screen and (orientation: landscape) {
+      @content;
+    }
+  }
+}

@@ -1,0 +1,11 @@
+// project/_footer.scss
+
+@use "../global/" as g;
+
+.l-footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: g.$COLOR_GRAY95;
+  height: 200px;
+}

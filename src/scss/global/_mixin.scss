@@ -1,0 +1,64 @@
+// global/_mixin.scss
+
+// font-size
+@mixin fz($size, $base: 10) {
+  font-size: $size + px;
+  // font-size: math.div($size, $base) + rem;
+}
+
+// gradient
+@mixin gradation($topColor, $bottomColor) {
+  background: mix($topColor, $bottomColor, 50%); //開始色と終了色の中間の色を背景色に指定
+  background: linear-gradient($topColor, $bottomColor);
+}
+
+// placeholder-style
+@mixin placeholder-style {
+  &::-webkit-input-placeholder {
+    @content;
+  }
+
+  // Firefox 4 to 18
+  &:-moz-placeholder {
+    opacity:  1;
+    @content;
+  }
+
+  // Firefox 19+
+  &::-moz-placeholder {
+    opacity:  1;
+    @content;
+  }
+
+  // IE 10+
+  &:-ms-input-placeholder {
+    @content;
+  }
+}
+
+@mixin ellipsis($max) {
+    overflow: hidden;
+    position: relative;
+    line-height: 1.2em;
+    max-height: $max;
+    text-align: justify;
+
+    &::before {
+        content: '...';
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        background-color: #fff;
+        width: 1em;
+    }
+
+    &::after {
+        content: '';
+        position: absolute;
+        right: 0;
+        width: 1em;
+        height: 1.2em;
+        background-color: #fff;
+    }
+}
+

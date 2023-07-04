@@ -1,0 +1,26 @@
+// project/_contents.scss
+
+@use "../global/" as g;
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(g.$COLOR_BLACK, .75);
+  z-index: index(g.$z, overlay);
+  opacity: 0;
+  visibility: hidden;
+
+  &.is_show {
+    visibility: visible;
+    animation: show_ol .5s linear 0s forwards;
+  }
+}
+
+@keyframes show_ol {
+  100% {
+    opacity: 1;
+  }
+}

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%
+    var path = './';
+    var title = '';
+
+    localmeta = {
+      rel_path: path,
+      ttl: title,
+      page_name: 'one_view',
+      page_sub: ''
+    };
+  %>
+
+  <%- include('./common/_head', {meta: localmeta}); %>
+  <body>
+    <%- include('./common/_header', {meta: localmeta}); %>
+
+    <!-- スライダー -->
+    <div class="swiper-oneview">
+
+      <!-- slide -->
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          test1
+        </div>
+        <div class="swiper-slide">
+          test2
+        </div>
+        <div class="swiper-slide">
+          test3
+        </div>
+      </div>
+      <%- include('./common/_footer', {meta: localmeta}); %>
+
+      <!-- pagination -->
+      <div class="swiper-pagination"></div>
+
+      <!-- scrollbar -->
+      <div class="swiper-scrollbar"></div>
+
+    </div>
+
+  </body>
+
+</html>

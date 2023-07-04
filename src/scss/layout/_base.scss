@@ -1,0 +1,13 @@
+// project/_base.scss
+
+@use "../global/" as g;
+
+body {
+  font-family: g.$BASE_FONT_FAMILY;
+  &.fixed {
+    position: fixed;
+  }
+}
+
+html {
+}

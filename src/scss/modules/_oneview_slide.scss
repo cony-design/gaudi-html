@@ -1,0 +1,14 @@
+// project/_contents.scss
+
+@use "../global/" as g;
+
+.swiper-oneview {
+  width: 100%;
+  height: 100%;
+
+  .swiper-slide {
+    display: block;
+    width: 100%;
+    min-height: 100%;
+  }
+}

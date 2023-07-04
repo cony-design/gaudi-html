@@ -1,0 +1,99 @@
+// project/_contents.scss
+
+@use "../global/" as g;
+
+/* 
+<div class="object"><span>OBJECT</span></div>
+
+<div class="wrapper wrapper_left">
+  <div class="object"><span>OBJECT</span></div>
+</div>
+*/
+
+$SAMPLE_W: 160px;
+
+.object {
+  @include g.fz(20);
+  font-weight: bold;
+  color: #0966a0;
+  padding: 16px;
+  margin: 16px;
+  background-color: rgb(225, 238, 139);
+
+  > * {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: $SAMPLE_W;
+    background-color: #9cf5ff;
+  }
+
+  @include g.media(sm) {
+    color: rgb(225, 238, 139);
+    background-color: #0966a0;
+  }
+}
+
+.wrapper {
+  display: flex;
+
+  &_left {
+    justify-content: flex-start;
+
+    > * {
+      max-width: $SAMPLE_W;
+      flex-basis: $SAMPLE_W;
+    }
+  }
+
+  &_center {
+    justify-content: center;
+
+    > * {
+      max-width: $SAMPLE_W;
+      flex-basis: $SAMPLE_W;
+    }
+  }
+
+  &_right {
+    justify-content: flex-end;
+
+    > * {
+      max-width: $SAMPLE_W;
+      flex-basis: $SAMPLE_W;
+    }
+  }
+
+  &_half {
+    flex-wrap: wrap;
+
+    > * {
+      max-width: calc(50% - 32px);
+      flex-basis: calc(50% - 32px);
+    }
+  }
+
+  &_list {
+    flex-wrap: wrap;
+
+    > * {
+      max-width: calc(25% - 32px);
+      flex-basis: calc(25% - 32px);
+    }
+  }
+
+  &_fix_flex {
+
+    > * {
+      max-width: calc(100% - 300px);
+      flex-basis: calc(100% - 300px);
+
+      &:nth-child(1),
+      &:nth-last-child(1) {
+        max-width: 150px;
+        flex-basis: 150px;
+      }
+    }
+  }
+
+}

@@ -1,0 +1,132 @@
+// utility/_index.scss
+
+@use '../global' as g;
+
+.hide {
+  display: none;
+}
+
+.sp {
+  display: none !important;
+
+  @include g.media(sm) {
+    display: block !important;
+
+    &_hide {
+      display: none !important;
+    }
+  }
+
+}
+
+.tab {
+  display: none !important;
+
+  @include g.media(md) {
+    display: block !important;
+
+    &_hide {
+      display: none !important;
+    }
+  }
+}
+
+.pc {
+  display: block !important;
+
+  @include g.media(pc) {
+    display: block !important;
+
+    &_hide {
+      display: none !important;
+    }
+  }
+  @include g.media(sm) {
+    display: none !important;
+  }
+}
+
+// inview
+
+$inview_speed: .25s;
+
+.fadein {
+  transition: all $inview_speed ease-out .25s;
+  opacity: 0;
+
+  &.scrollin {
+    opacity: 1;
+  }
+}
+
+.fadein_up {
+  transition: all $inview_speed ease-out .25s;
+  transform: translate(0, 10%);
+  opacity: 0;
+
+  &.scrollin {
+    transform: translate(0, 0);
+    opacity: 1;
+  }
+}
+
+.fadein_left {
+  transition: all .5s ease-out .25s;
+  transform: translateX(10%);
+  opacity: 0;
+
+  &.scrollin {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.fadein_right {
+  transition: all .5s ease-out .25s;
+  transform: translateX(-10%);
+  opacity: 0;
+
+  &.scrollin {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.fadein_order {
+  > * {
+    transition: all $inview_speed ease-out .25s;
+    transform: translateY(10%);
+    opacity: 0;
+
+    &.scrollin  {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+}
+
+.fadein_order_right {
+  > * {
+    transition: all .5s ease-out .25s;
+    transform: translateX(10%);
+    opacity: 0;
+
+    &.scrollin  {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+}
+
+.fadein_order_left {
+  > * {
+    transition: all .5s ease-out .25s;
+    transform: translateX(10%);
+    opacity: 0;
+
+    &.scrollin  {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+}
