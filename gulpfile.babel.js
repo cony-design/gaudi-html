@@ -9,6 +9,8 @@ const browserSync = require("browser-sync").create();
 const postcss = require("gulp-postcss");
 const clean = require("gulp-clean");
 const imagemin = require("gulp-imagemin");
+const uglify = require("gulp-uglify");
+const plumber = require("gulp-plumber");
 
 const paths = {
   ejs: {
@@ -99,8 +101,10 @@ function cssClear() {
 //---------------------------------------------------
 function buildJs() {
   return src(paths.js.src)
+    .pipe(plumber())
     .pipe(concat("common.js"))
     .pipe(babel())
+    .pipe(uglify()) 
     .pipe(dest(paths.js.dest));
 }
 function jsClear() {
