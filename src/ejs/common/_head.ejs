@@ -17,15 +17,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
   <!-- font -->
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" media="print" onload="this.media='all'">
 
   <!-- css -->
-  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css" />
-  <link rel="stylesheet" href="<%= localmeta.rel_path %>css/style.css" media="all">
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css" media="print" onload="this.media='all'" />
+  <link rel="stylesheet" href="<%= localmeta.rel_path %>css/style.css" media="print" onload="this.media='all'">
 
   <!-- js -->
-  <script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
-  <script src="<%= localmeta.rel_path %>js/common.js"></script>
+  <script src="https://unpkg.com/swiper/swiper-bundle.js" defer></script>
+  <script src="<%= localmeta.rel_path %>js/common.js" defer></script>
 
   <link rel="shortcut icon" href="<%= localmeta.rel_path %>images/favicon.ico" type="image/vnd.microsoft.icon">
   <link rel="icon" href="<%= localmeta.rel_path %>images/favicon.ico" type="image/vnd.microsoft.icon">
