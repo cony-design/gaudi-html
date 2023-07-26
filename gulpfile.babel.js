@@ -10,6 +10,8 @@ const postcss = require("gulp-postcss");
 const clean = require("gulp-clean");
 const imagemin = require("gulp-imagemin");
 const uglify = require("gulp-uglify");
+const purgecss = require("gulp-purgecss");
+const cleancss = require("gulp-clean-css");
 const plumber = require("gulp-plumber");
 
 const paths = {
@@ -76,6 +78,7 @@ function htmlClear() {
 //---------------------------------------------------
 function buildStyles() {
   return src(paths.css.src)
+    .pipe(plumber())
     .pipe(sourcemaps.init())
     .pipe(sass.sync().on("error", sass.logError))
     .pipe(
@@ -89,6 +92,7 @@ function buildStyles() {
         })
       ])
     )
+    .pipe(cleancss())
     .pipe(sourcemaps.write('./'))
     .pipe(dest(paths.css.dest));
 }
