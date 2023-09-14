@@ -29,6 +29,7 @@
     margin: auto auto auto auto;
     z-index: index(g.$z, modal);
     overflow-y: scroll;
+    scrollbar-gutter: stable;
     transition: .25s ease-out;
   
     &.open {
