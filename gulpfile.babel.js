@@ -24,6 +24,7 @@ const paths = {
   css: {
     src: "./src/scss/**/*.scss",
     dest: "./dist/css/",
+    restore: "./dist/css/common.css",
   },
   js: {
     src: ["src/js/start.js", "src/js/module/*.js", "src/js/end.js"],
@@ -97,8 +98,9 @@ function buildStyles() {
     .pipe(sourcemaps.write('./'))
     .pipe(dest(paths.css.dest));
 }
+
 function cssClear() {
-  return src(paths.css.dest, { allowEmpty: true }).pipe(clean());
+  return src(paths.css.restore, { allowEmpty: true }).pipe(clean());
 }
 
 //---------------------------------------------------
