@@ -41,6 +41,10 @@ const paths = {
   },
 };
 
+const filename = {
+  js: 'common.js',
+}
+
 //---------------------------------------------------
 // BROWSERSYNC
 //---------------------------------------------------
@@ -110,7 +114,7 @@ function cssClear() {
 function buildJs() {
   return src(paths.js.src)
     .pipe(plumber())
-    .pipe(concat("common.js"))
+    .pipe(concat(filename.js))
     .pipe(babel())
     .pipe(uglify()) 
     .pipe(dest(paths.js.dest));
