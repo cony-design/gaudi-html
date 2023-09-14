@@ -19,6 +19,7 @@ const paths = {
     src: ["src/ejs/**/*.ejs", "!" + "src/ejs/**/_*.ejs"],
     dest: "./dist/",
     target: ["src/ejs/**/*.ejs"],
+    restore: ["./dist/**/*.html"],
   },
   css: {
     src: "./src/scss/**/*.scss",
@@ -69,7 +70,7 @@ function buildHtml() {
     .pipe(dest(paths.ejs.dest));
 }
 function htmlClear() {
-  return src(paths.ejs.dest, { allowEmpty: true }).pipe(clean());
+  return src(paths.ejs.restore, { allowEmpty: true }).pipe(clean());
 }
 
 
