@@ -29,6 +29,7 @@ const paths = {
   js: {
     src: ["src/js/start.js", "src/js/module/*.js", "src/js/end.js"],
     dest: "./dist/js/",
+    restore: "./dist/js/common.js",
   },
   image: {
     src: ["src/img/**/*"],
@@ -115,7 +116,7 @@ function buildJs() {
     .pipe(dest(paths.js.dest));
 }
 function jsClear() {
-  return src(paths.js.dest, { allowEmpty: true }).pipe(clean());
+  return src(paths.js.restore, { allowEmpty: true }).pipe(clean());
 }
 
 //---------------------------------------------------
