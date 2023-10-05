@@ -2,9 +2,12 @@
 // Breakpoint
 // -------------------- */
 
+import { mql } from "../param";
+import { setNav, destNav } from './nav_ctrl.js';
+
 let device_is;
 
-const checkBreakPoint = (mql) => {
+export const checkBreakPoint = (mql) => {
   //モバイル向け
   if (!mql.matches) {
     setNav();
@@ -18,3 +21,5 @@ const checkBreakPoint = (mql) => {
     device_is = 'DESKTOP';
   }
 }
+
+mql.addListener(checkBreakPoint);

@@ -13,97 +13,101 @@
   %>
 
   <%- include('./common/_head', {meta: localmeta}); %>
-  <body>
-    <%- include('./common/_header', {meta: localmeta}); %>
 
-    <!-- スライダー -->
-    <div class="swiper-container">
-      <!-- Additional required wrapper -->
-      <div class="swiper-wrapper">
-        <!-- Slides -->
-        <div class="swiper-slide"><span class="fig" style="background-image: url(https://picsum.photos/1900/800/?random);"></span></div>
-        <div class="swiper-slide"><span class="fig" style="background-image: url(https://picsum.photos/1900/840/?random);"></span></div>
-        <div class="swiper-slide"><span class="fig" style="background-image: url(https://picsum.photos/1900/900/?random);"></span></div>
-      </div>
-      <!-- If we need pagination -->
-      <div class="swiper-pagination"></div>
+    <body>
+      <%- include('./common/_header', {meta: localmeta}); %>
 
-      <!-- If we need navigation buttons -->
-      <div class="swiper-button-prev"></div>
-      <div class="swiper-button-next"></div>
-    </div>
+        <!-- スライダー -->
+        <div class="swiper-container">
+          <!-- Additional required wrapper -->
+          <div class="swiper-wrapper">
+            <!-- Slides -->
+            <div class="swiper-slide"><span class="fig" style="background-image: url(https://picsum.photos/1900/800/?random);"></span></div>
+            <div class="swiper-slide"><span class="fig" style="background-image: url(https://picsum.photos/1900/840/?random);"></span></div>
+            <div class="swiper-slide"><span class="fig" style="background-image: url(https://picsum.photos/1900/900/?random);"></span></div>
+          </div>
+          <!-- If we need pagination -->
+          <div class="swiper-pagination"></div>
 
-    <!-- ページ内リンク -->
-    <a href="#test">リンク</a>
-
-    <!-- モーダル -->
-    <a data-modal="demo" class="js-modal-open">modal</a>
-
-    <!-- アコーディオン -->
-    <div class="js-accordion accordion opened">
-      <div class="accordion_toggle">アコーディオンスイッチ</div>
-      <div class="accordion_contain">テストテストテスト</div>
-    </div>
-
-    <!-- レイアウト集 -->
-
-    <div class="object fadein"><span>OBJECT</span></div>
-
-    <div class="wrapper wrapper_left fadein">
-      <div class="object"><span>OBJECT</span></div>
-    </div>
-
-    <div class="wrapper wrapper_center fadein">
-      <div class="object"><span>OBJECT</span></div>
-    </div>
-
-    <div class="wrapper wrapper_right fadein">
-      <div class="object"><span>OBJECT</span></div>
-    </div>
-
-    <div class="wrapper wrapper_half fadein_order">
-      <div class="object"><span>OBJECT</span></div>
-      <div class="object"><span>OBJECT</span></div>
-    </div>
-
-    <div class="wrapper wrapper_list fadein_order" id="test">
-      <div class="object"><span>OBJECT</span></div>
-      <div class="object"><span>OBJECT</span></div>
-      <div class="object"><span>OBJECT</span></div>
-      <div class="object"><span>OBJECT</span></div>
-    </div>
-
-    <div class="wrapper wrapper_fix_flex fadein_order">
-      <div class="object"><span>OBJECT</span></div>
-      <div class="object"><span>OBJECT</span></div>
-      <div class="object"><span>OBJECT</span></div>
-    </div>
-
-    <div class="spy">
-      <a href="#" class="spy_obj js-spy_obj">spy</a>
-    </div>
-    <%- include('./common/_footer', {meta: localmeta}); %>
-
-    <!-- ModalWrap -->
-    <div class="modal-wrap">
-      <div class="modal">
-        <span class="modal-btn js-modal-close"><i class="fas fa-times"></i></span>
-        <div class="modal-container"></div>
-      </div>
-    </div>
-    <!-- /ModalWrap -->
-
-    <div class="hide">
-
-      <div class="demo">
-        <div class="inner">
-          <p>TEST</p>
-          <a class="js-modal-close">CLOSE</a>
+          <!-- If we need navigation buttons -->
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div>
         </div>
-      </div>
 
-    </div>
+        <!-- ページ内リンク -->
+        <a href="#test">リンク</a>
 
-  </body>
+        <!-- モーダル -->
+        <dialog class="js-modal modal" style="display: none;">
+          <div class="modal_inner">
+            <p>dialog内のテキスト</p>
+            <button class="js-modal_close" type="button">閉じる</button>
+          </div>
+        </dialog>
+        
+        <button class="js-modal_open" type="button">モーダル</button>
+
+        <!-- アコーディオン -->
+        <div class="js-accordion">
+          <article class=" js-accordion-trigger">
+            <h3>質問内容</h3>
+            <div class="accordion__content">
+              回答　ダミーダミーダミーダミー
+            </div>
+          </article>
+          <article class=" js-accordion-trigger">
+            <h3>質問内容</h3>
+            <div class="accordion__content">
+              回答　ダミーダミーダミーダミー
+            </div>
+          </article>
+          <article class=" js-accordion-trigger">
+            <h3>質問内容</h3>
+            <div class="accordion__content">
+              回答　ダミーダミーダミーダミー
+            </div>
+          </article>
+        </div>
+
+        <!-- レイアウト集 -->
+
+        <div class="object fadein"><span>OBJECT</span></div>
+
+        <div class="wrapper wrapper_left fadein">
+          <div class="object"><span>OBJECT</span></div>
+        </div>
+
+        <div class="wrapper wrapper_center fadein">
+          <div class="object"><span>OBJECT</span></div>
+        </div>
+
+        <div class="wrapper wrapper_right fadein">
+          <div class="object"><span>OBJECT</span></div>
+        </div>
+
+        <div class="wrapper wrapper_half fadein_order">
+          <div class="object"><span>OBJECT</span></div>
+          <div class="object"><span>OBJECT</span></div>
+        </div>
+
+        <div class="wrapper wrapper_list fadein_order" id="test">
+          <div class="object"><span>OBJECT</span></div>
+          <div class="object"><span>OBJECT</span></div>
+          <div class="object"><span>OBJECT</span></div>
+          <div class="object"><span>OBJECT</span></div>
+        </div>
+
+        <div class="wrapper wrapper_fix_flex fadein_order">
+          <div class="object"><span>OBJECT</span></div>
+          <div class="object"><span>OBJECT</span></div>
+          <div class="object"><span>OBJECT</span></div>
+        </div>
+
+        <div class="spy">
+          <a href="#" class="spy_obj js-spy_obj">spy</a>
+        </div>
+        <%- include('./common/_footer', {meta: localmeta}); %>
+
+    </body>
 
 </html>

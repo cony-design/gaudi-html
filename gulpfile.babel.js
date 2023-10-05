@@ -1,7 +1,5 @@
 const { series, parallel, src, dest, watch } = require("gulp");
-const babel = require("gulp-babel");
 const ejs = require("gulp-ejs");
-const concat = require("gulp-concat");
 const rename = require("gulp-rename");
 const sourcemaps = require("gulp-sourcemaps");
 const sass = require("gulp-sass")(require("sass"));
@@ -9,10 +7,10 @@ const browserSync = require("browser-sync").create();
 const postcss = require("gulp-postcss");
 const clean = require("gulp-clean");
 const imagemin = require("gulp-imagemin");
-const uglify = require("gulp-uglify");
 const purgecss = require("gulp-purgecss");
 const cleancss = require("gulp-clean-css");
 const plumber = require("gulp-plumber");
+const webpack = require('webpack-stream');
 
 const paths = {
   ejs: {
@@ -27,7 +25,8 @@ const paths = {
     restore: "./dist/css/common.css",
   },
   js: {
-    src: ["src/js/start.js", "src/js/module/*.js", "src/js/end.js"],
+    src: "./src/js/**/*.js",
+    entry: "./src/js/main.js",
     dest: "./dist/js/",
     restore: "./dist/js/common.js",
   },
@@ -111,14 +110,22 @@ function cssClear() {
 //---------------------------------------------------
 // JS
 //---------------------------------------------------
+
 function buildJs() {
   return src(paths.js.src)
     .pipe(plumber())
-    .pipe(concat(filename.js))
-    .pipe(babel())
-    .pipe(uglify()) 
+    .pipe(webpack({
+      mode: 'development', // または 'production'
+      entry: {
+        main: paths.js.entry,
+      },
+      output: {
+        filename: 'common.js',
+      },
+    }))
     .pipe(dest(paths.js.dest));
 }
+
 function jsClear() {
   return src(paths.js.restore, { allowEmpty: true }).pipe(clean());
 }

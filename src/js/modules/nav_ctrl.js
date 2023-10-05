@@ -22,14 +22,16 @@
 
 ``````````````````````````````  */
 
+import { lockScreen, unlockScreen } from './lock_screen.js';
+
 const $menus = document.querySelector('.js-globalnav');
 const $toggle = document.querySelector('.js-menu-trigger');
 
-const setNav = () => {
+export const setNav = () => {
   toggleSet();
 }
 
-const destNav = () => {
+export const destNav = () => {
   $toggle.removeEventListener('click', openNav);
   $menus.classList.remove('open');
   $toggle.parentNode.classList.remove('active', 'active--back');
@@ -49,8 +51,6 @@ const closeNav = () => {
 }
 
 const toggleSet = () => {
-  console.log('HOHOHOH')
-
   $toggle.removeEventListener('click', closeNav);
   $toggle.parentNode.classList.remove('active', 'active--back');
   $toggle.addEventListener('click', openNav);

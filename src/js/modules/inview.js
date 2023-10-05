@@ -4,24 +4,29 @@
 
 /*  ``````````````````````````````
 
-    <!-- 単体 -->
-    <div class="fadein">フェード</div>
+  <!-- 単体 -->
+  <div class="fadein">フェード</div>
 
-    <!-- 連続 -->
-    <ul class="fadein_order">
-      <li>フェード1</li>
-      <li>フェード2</li>
-      <li>フェード3</li>
-    </ul>
+  <!-- 連続 -->
+  <ul class="fadein_order">
+    <li>フェード1</li>
+    <li>フェード2</li>
+    <li>フェード3</li>
+  </ul>
 
-    ``````````````````````````````  */
+``````````````````````````````  */
 
-    const inview = () => {
+const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+const getOffsetTop = ($el) => {
+  const rect = $el.getBoundingClientRect();
+  return rect.top + scrollTop;
+}
+
+export const inview = () => {
   const windowHeight = window.innerHeight;
-  const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
 
   // 個別フェードイン
-
   let $fade_obj = document.querySelectorAll('.fadein');
 
   $fade_obj.forEach((obj, i) => {
@@ -44,7 +49,7 @@
 
     if (scrollTop > elemPos - windowHeight + delay) {
       Array.from(obj.children).forEach((el, i) => {
-        setTimeout(function() {
+        setTimeout(function () {
           el.classList.add('scrollin');
         }, 200 * i);
       });
@@ -52,5 +57,3 @@
   });
 }
 
-window.addEventListener('DOMContentLoaded', inview);
-window.addEventListener('scroll', inview);

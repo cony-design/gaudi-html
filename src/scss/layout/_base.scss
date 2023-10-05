@@ -3,7 +3,9 @@
 @use "../global/" as g;
 
 body {
+  width: 100%;
   font-family: g.$BASE_FONT_FAMILY;
+
   &.fixed {
     position: fixed;
   }
