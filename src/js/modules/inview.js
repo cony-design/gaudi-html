@@ -16,12 +16,7 @@
 
 ``````````````````````````````  */
 
-const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-
-const getOffsetTop = ($el) => {
-  const rect = $el.getBoundingClientRect();
-  return rect.top + scrollTop;
-}
+import { getOffsetTop, scrollTop } from "../param.js";
 
 export const inview = () => {
   const windowHeight = window.innerHeight;

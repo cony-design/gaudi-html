@@ -6,4 +6,11 @@ export const $dom = {
   click_event : ((window.ontouchstart !== null) ? 'click' : 'touchend'),
 };
 
+export const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+export const getOffsetTop = ($el) => {
+  const rect = $el.getBoundingClientRect();
+  return rect.top + scrollTop;
+}
+
 export const mql = window.matchMedia('screen and (min-width: 1024px)');
