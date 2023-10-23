@@ -16,39 +16,67 @@
 
 ``````````````````````````````  */
 
-import { getOffsetTop, scrollTop } from "../param.js";
-
 export const inview = () => {
-  const windowHeight = window.innerHeight;
+  const options = {
+    rootMargin: '-200px 0px'
+  }
 
-  // 個別フェードイン
-  let $fade_obj = document.querySelectorAll('.fadein');
+  /* Fadein ------------------------------ */
+  const fadein = (entries) => {
+    entries.forEach((entry) => {
 
-  $fade_obj.forEach((obj, i) => {
-    const elemPos = getOffsetTop(obj);
-    const delay = 200;
+      if (entry.isIntersecting) {
+        entry.target.classList.add('scrollin');
+      } else {
+      }
+    });
+  }
+  const o_f = new IntersectionObserver(fadein, options);
 
-    if (scrollTop > elemPos - windowHeight + delay) {
-      obj.classList.add('scrollin');
-    }
+  const $_el_f = document.querySelectorAll('.fadein');
+
+  $_el_f.forEach(object => {
+    o_f.observe(object);
   });
 
+  /* FadeinOrder ------------------------- */
+  const fadein_order = (entries) => {
+    entries.forEach((entry) => {
 
-  // グループフェードイン
+      if (entry.isIntersecting) {
+        Array.from(entry.target.children).forEach((el, i) => {
 
-  let $fade_array = document.querySelectorAll('.fadein_order');
+          setTimeout(function () {
+            el.classList.add('scrollin');
+          }, 200 * i);
+        });
+      } else {
+      }
+    });
+  }
+  const o_fo = new IntersectionObserver(fadein_order, options);
 
-  $fade_array.forEach((obj, i) => {
-    const elemPos = getOffsetTop(obj);
-    const delay = 200;
+  const $_el_fo = document.querySelectorAll('.fadein_order');
 
-    if (scrollTop > elemPos - windowHeight + delay) {
-      Array.from(obj.children).forEach((el, i) => {
-        setTimeout(function () {
-          el.classList.add('scrollin');
-        }, 200 * i);
-      });
-    }
+  $_el_fo.forEach(object => {
+    o_fo.observe(object);
+  });
+
+  /* inview ------------------------- */
+  const inview = (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('scrollin');
+      } else {
+      }
+    });
+  }
+  const o_iv = new IntersectionObserver(inview, options);
+
+  const $_el_iv = document.querySelectorAll('.fadein_order');
+
+  $_el_iv.forEach(object => {
+    o_iv.observe(object);
   });
 }
 
