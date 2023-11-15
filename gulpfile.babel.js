@@ -11,6 +11,7 @@ const purgecss = require("gulp-purgecss");
 const cleancss = require("gulp-clean-css");
 const plumber = require("gulp-plumber");
 const webpack = require('webpack-stream');
+const htmlmin = require('gulp-htmlmin');
 
 const paths = {
   ejs: {
@@ -72,6 +73,7 @@ function buildHtml() {
   return src(paths.ejs.src)
     .pipe(ejs())
     .pipe(rename({ extname: ".html" }))
+    .pipe(htmlmin({ removeComments : true }))
     .pipe(dest(paths.ejs.dest));
 }
 function htmlClear() {
