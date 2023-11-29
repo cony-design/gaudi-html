@@ -172,6 +172,7 @@ exports.build = series(
   imageClear,
   parallel(buildHtml, buildStyles, buildJs, copyImage, copyMisc)
 );
+
 exports.default = series(
   htmlClear,
   cssClear,
