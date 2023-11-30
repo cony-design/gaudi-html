@@ -9,7 +9,7 @@
   z-index: index(g.$z, header);
   width: 100%;
   height: 80px;
-  background-color: g.$COLOR_WHITE;
+  background-color: var(--color-white);
 
   h1 {
     position: absolute;

@@ -1,0 +1,21 @@
+// global/_zindex.scss
+
+// Zindex
+$z:
+  content_layer1,
+  content_layer2,
+  content_layer3,
+  content_layer4,
+  content_layer5,
+  overlay,
+  header,
+  modal,
+  modal-layer1,
+  modal-layer2,
+  modal-layer3,
+  modal-layer4,
+  modal-layer5,
+  menu,
+  menu-toggle
+;
+// z-index: index(g.$z, header);

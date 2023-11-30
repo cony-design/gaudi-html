@@ -3,14 +3,14 @@
 @use "../global/" as g;
 
 .accordion {
-  border: 1px solid g.$COLOR_GRAY95;
+  border: 1px solid var(--color-gray95);
 
   > * {
     // padding: 12px;
   }
 
   &_toggle {
-    border-bottom: 1px solid g.$COLOR_GRAY95;
+    border-bottom: 1px solid var(--color-gray95);
   }
 
   &_contain {

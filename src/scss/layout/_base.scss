@@ -4,7 +4,7 @@
 
 body {
   width: 100%;
-  font-family: g.$BASE_FONT_FAMILY;
+  font-family: var(--font_family-base);
 
   &.fixed {
     overflow: hidden;

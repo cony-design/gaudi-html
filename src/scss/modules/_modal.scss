@@ -28,7 +28,7 @@
     max-width: 1112px;
     margin-inline: auto;
     padding: 16px;
-    background-color: g.$COLOR_WHITE;
+    background-color: var(--color-white);
     border-radius: 32px;
   }
 
@@ -54,7 +54,7 @@
 
   &_contents {
     height: 1500px;
-    background-color: g.$COLOR_GRAY90;
+    background-color: var(--color-gray90);
   }
 }
 

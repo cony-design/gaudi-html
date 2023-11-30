@@ -8,7 +8,7 @@
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: rgba(g.$COLOR_BLACK, .75);
+  background-color: rgba(var(--color_black), .75);
   z-index: index(g.$z, overlay);
   opacity: 0;
   visibility: hidden;

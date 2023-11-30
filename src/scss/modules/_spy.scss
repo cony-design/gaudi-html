@@ -18,9 +18,9 @@
     justify-content: center;
     width: 100px;
     height: 100px;
-    color: g.$COLOR_WHITE;
+    color: var(--color-white);
     text-decoration: none;
-    background-color: g.$COLOR_BLACK;
+    background-color: var(--color-black);
     transition: transform .25s ease-out;
     transform: translate( 0, 0);
     z-index: index(g.$z, content_layer2);
