@@ -7,7 +7,7 @@ body {
   font-family: g.$BASE_FONT_FAMILY;
 
   &.fixed {
-    position: fixed;
+    overflow: hidden;
   }
 }
 

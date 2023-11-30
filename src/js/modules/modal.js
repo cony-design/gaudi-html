@@ -12,28 +12,27 @@ const modal = () => {
     $modal.removeAttribute("style");
     lockScreen();
     $modal.showModal();
+    $modal.scrollTop = 0;
   });
 
   $closeTrigger.addEventListener("click", () => {
     $modal.close();
-    unlockScreen();
   });
 
   $modal.addEventListener("cancel", () => {
     $modal.close();
-    unlockScreen();
   });
 
   $modal.addEventListener('click', (event) => {
     if(event.target.closest('.modal_inner') === null) {
       $modal.close();
-      unlockScreen();
     }
   });
 
   $modal.addEventListener("close", async (e) => {
     await waitDialogAnimation(e.target);
     $modal.style.display = "none";
+    unlockScreen();
   })
 
   const waitDialogAnimation = (dialog) => Promise.allSettled(
