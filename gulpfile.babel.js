@@ -12,6 +12,7 @@ const cleancss = require("gulp-clean-css");
 const plumber = require("gulp-plumber");
 const webpack = require('webpack-stream');
 const htmlmin = require('gulp-htmlmin');
+const eslint = require('gulp-eslint');
 
 const paths = {
   ejs: {
@@ -128,6 +129,15 @@ function buildJs() {
     .pipe(dest(paths.js.dest));
 }
 
+function lintJs() {
+  return src(paths.js.dest)
+  .pipe(plumber()) //(＊2)
+  .pipe(eslint()) //(＊3)
+  .pipe(eslint.format()) //(＊4)
+  .pipe(eslint.failAfterError()) //(＊5)
+  .pipe(dest(paths.js.dest));
+}
+
 function jsClear() {
   return src(paths.js.restore, { allowEmpty: true }).pipe(clean());
 }
@@ -178,6 +188,6 @@ exports.default = series(
   cssClear,
   jsClear,
   imageClear,
-  parallel(buildStyles, buildHtml, buildJs, copyImage, copyMisc),
+  parallel(buildStyles, buildHtml, buildJs, lintJs, copyImage, copyMisc),
   parallel(watchSrc, serve)
 );
