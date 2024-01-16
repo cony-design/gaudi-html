@@ -130,7 +130,7 @@ function buildJs() {
 }
 
 function lintJs() {
-  return src(paths.js.dest)
+  return src(paths.js.dest, { allowEmpty: true })
   .pipe(plumber()) //(＊2)
   .pipe(eslint()) //(＊3)
   .pipe(eslint.format()) //(＊4)
